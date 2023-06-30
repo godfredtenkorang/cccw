@@ -1,0 +1,36 @@
+{% extends 'church/base.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block css_files %}
+<link rel="stylesheet" type="text/css" href="{% static 'church/style.css' %}">
+{% endblock %}
+{% block content %}
+<section class="myHeading">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="myTitle text-center">YouTube</h1>
+                <h6 class="myTitle2 text-center"><a class="myTitleLink" href="{% url 'home' %}">Home </a>/ YouTube</h6>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section class="pt-5 mt-4 pb-3" style="overflow: hidden;">
+    <div class="container">
+        <div class="row" data-aos="fade-right">
+            {% for video in youtubes %}
+            <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                <article class="pb-3">
+                    {% video video.url '320x240' %}
+                </article>
+            </div>
+            {% endfor %} -->
+            <!-- <div class="col-lg-6 col-md-6 col-sm-12">
+                <video class="embed-responsive embed-responsive-16by9" height="400px" controls="controls">
+                    <source src="{{ x.video.url }}" type="video/mp4"/>
+                </video>
+            </div> -->
+        <!-- </div>
+    </div>
+</section> -->
+{% endblock %}

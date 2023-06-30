@@ -1,0 +1,116 @@
+{% extends 'church/base.html' %}
+{% load static %}
+{% block css_files %}
+<link rel="stylesheet" type="text/css" href="{% static 'church/style.css' %}">
+{% endblock %}
+{% block content %}
+    <section class="myHeading">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="myTitle text-center">About us</h1>
+                    <h6 class="myTitle2 text-center"><a class="myTitleLink" href="{% url 'home' %}">Home </a>/ About us</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pt-5 pb-5" style="overflow:hidden;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="d-flex justify-content-center">
+                        <img src="{% static 'church/images/Church-logo.png' %}" height="350px" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div>
+                        <h5 style="color: #090580;">About Us</h5>
+                        <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum doloribus quidem tempore
+                            excepturi ad sunt deserunt, possimus laborum et rerum eligendi natus impedit nobis, sequi
+                            blanditiis quibusdam illo in sint?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pt-5 pb-4">
+        <div class="two alt-two">
+            <h1>Our Pastors
+                <span>Get to know our team</span>
+            </h1>
+        </div>
+        <div class="container">
+            <div class="row vh-100">
+                <div class="col-sm-6 col-lg-3 my-auto">
+                    <div class="box shadow-sm p-4">
+                        <div class="image-wrapper mb-3">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/555790/pexels-photo-555790.png"
+                                alt="..." />
+                        </div>
+                        <div class="box-desc">
+                            <h5>Jon Doe</h5>
+                            <p>FrontEnd Developer</p>
+                        </div>
+                        <ul class="social">
+                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 my-auto">
+                    <div class="box shadow-sm p-4">
+                        <div class="image-wrapper mb-3">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/555790/pexels-photo-555790.png"
+                                alt="..." />
+                        </div>
+                        <div class="box-desc">
+                            <h5>Jon Doe</h5>
+                            <p>FrontEnd Developer</p>
+                        </div>
+                        <ul class="social">
+                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 my-auto">
+                    <div class="box shadow-sm p-4">
+                        <div class="image-wrapper mb-3">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/555790/pexels-photo-555790.png"
+                                alt="..." />
+                        </div>
+                        <div class="box-desc">
+                            <h5>Jon Doe</h5>
+                            <p>FrontEnd Developer</p>
+                        </div>
+                        <ul class="social">
+                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 my-auto">
+                    <div class="box shadow-sm p-4">
+                        <div class="image-wrapper mb-3">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/555790/pexels-photo-555790.png"
+                                alt="..." />
+                        </div>
+                        <div class="box-desc">
+                            <h5>Jon Doe</h5>
+                            <p>FrontEnd Developer</p>
+                        </div>
+                        <ul class="social">
+                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

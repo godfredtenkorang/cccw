@@ -1,0 +1,266 @@
+/* === BASE HEADING === */ 
+
+h1 {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: #080808;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+h1 span {
+  display: block;
+  font-size: 0.5em;
+  line-height: 1.3;
+}
+h1 em {
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* === HEADING STYLE #2 === */
+.two h1 {
+  text-transform: capitalize;
+}
+.two h1:before {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 2px;
+  content: "";
+  background-color: #c50000;
+}
+
+.two h1 span {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  line-height: 3em;
+  padding-left: 0.25em;
+  color: rgba(0, 0, 0, 0.4);
+  padding-bottom: 10px;
+}
+.alt-two h1 {
+  text-align:center;
+}
+.alt-two h1:before {
+  left:50%; margin-left:-30px;
+}
+/*----------Title End-----------------*/
+
+/*------------Event start-------------- */
+ .time {
+        height: 100px;
+        width: 100px;
+        color: #fff;
+        background-color: #090580;
+        text-align: center;
+    }
+
+    .events {
+        display: flex;
+        box-shadow: 5px 10px #eee;
+        height: 100%;
+    }
+    .details {
+        padding-left: 40px;
+    }
+
+    .event-btn {
+        color: #090580;
+    }
+
+    .event-btn:hover {
+        color: #080808;
+    }
+
+/*----------Event end--------------*/
+
+.btn {
+    border-radius: 10px;
+}
+.btn:hover {
+    background: #090580;
+}
+
+
+
+/*-------------Counter Start--------------*/
+  .counter-img {
+    background-image: url("{% static 'foundation/images/donate222.jpeg' %}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+  }
+
+  .counter-img::before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.7;
+  }
+
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 5px;
+  }
+
+  .about-row {
+    margin: 0 -5px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+
+  .card-img {
+    color: white;
+    padding: 16px;
+    text-align: center;
+    position: relative;
+  }
+    /* Mobile Responsive */
+
+   @media (min-width: 576px) {
+    .entertain-containerr {
+      max-width: 540px;
+    }
+
+    .column2 {
+      max-width: 50%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .entertain-container {
+      max-width: 720px;
+    }
+
+    .column2 {
+      max-width: 33.333333%;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .entertain-container {
+      max-width: 960px;
+    }
+
+    .column2 {
+      max-width: 30%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .entertain-container {
+      max-width: 1140px;
+    }
+
+  }
+
+  /*-------------Counter End--------------*/
+
+
+.myCard {
+    height: 100%;
+    border: none;
+    box-shadow: 5px 5px #eee;
+}
+
+/*------------team card start------------*/
+
+.box {
+	border-radius: 150px;
+	background:#fff;
+	position:relative;
+	overflow: hidden;
+	text-align:center;
+}
+.box:before {
+    position: absolute;
+    content: '';
+    left: 0px;
+    top: 0px;
+    width: 0px;
+    height: 100%;
+    border-radius: 150px;
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.30);
+    transition: all 0.3s ease;
+    background-image: linear-gradient(to right, #272496 0%, #514f9c 100%);
+}
+.box:hover:before {
+    width: 100%;
+}
+.box:hover .image-wrapper {
+	padding:0;
+}
+.box:hover .box-desc {
+	color:#fff;
+}
+.box:hover .social li a {
+	background:#fff;
+	background-image: none;
+	color:#000;
+}
+.box:hover .social li a:hover {
+	background:#1d1d1d;
+	color:#fff;
+}
+.image-wrapper {
+    position: relative;
+	max-width: 210px;
+    max-height: 210px;
+	margin:0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+    padding: 15px;
+    transition: all 0.5s ease;
+    box-shadow: inset 0px 0px 20px rgba(0,0,0,0.20);
+}
+.image-wrapper img {
+    border-radius: 50%;
+    transition: all 500ms ease;
+}
+.box-desc {
+	position:relative;
+}
+ul.social {
+	padding:0;
+}
+ul.social li {
+	display:inline-block;
+	list-style-type:none;
+}
+ul.social li a {
+	position:relative;
+	width: 36px;
+    height: 36px;
+	background-image: linear-gradient(to right, #090580 0%, #474587 100%);
+	display:inline-block;
+	line-height:36px;
+	border-radius:50%;
+	color:#fff;
+	transition: all .5s ease;
+}
+
+/*-------------team card end-----------*/
+
+
