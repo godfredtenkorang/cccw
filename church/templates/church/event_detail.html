@@ -1,0 +1,56 @@
+{% extends 'church/base.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block css_files %}
+<link rel="stylesheet" type="text/css" href="{% static 'church/style.css' %}">
+{% endblock %}
+{% block content %}
+<section class="myHeading">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="myTitle text-center">Event Details</h1>
+                <h6 class="myTitle2 text-center"><a class="myTitleLink" href="{% url 'home' %}">Home </a>/ Event Details
+                </h6>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-3" style="border: none;">
+                    <img class="card-img-top" src="{{ event.image.url }}" height="600px" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text">{{ event.content }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header" style="background-color: #090580;">
+                        <h4 style="color: #fff;" class="text-center">Event Details</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Organizer: {{ event.organizer }}</li>
+                        <li class="list-group-item">Start Date: {{ event.start_date }}</li>
+                        <li class="list-group-item">End Date: {{ event.end_date }}</li>
+                        <li class="list-group-item">Time: {{ event.time|date:"P" }}</li>
+                    </ul>
+                    <div class="card-header" style="background-color: #090580;">
+                        <h4 style="color: #fff;" class="text-center">Event Venue</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Venue: {{ event.venue }}</li>
+                        <li class="list-group-item">Address: {{ event.address }}</li>
+                        <li class="list-group-item">Email: {{ event.email }}</li>
+                        <li class="list-group-item">Phone: {{ event.phone }} </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

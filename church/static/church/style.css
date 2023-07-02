@@ -56,22 +56,7 @@ h1 em {
 /*----------Title End-----------------*/
 
 /*------------Event start-------------- */
- .time {
-        height: 100px;
-        width: 100px;
-        color: #fff;
-        background-color: #090580;
-        text-align: center;
-    }
 
-    .events {
-        display: flex;
-        box-shadow: 5px 10px #eee;
-        height: 100%;
-    }
-    .details {
-        padding-left: 40px;
-    }
 
     .event-btn {
         color: #090580;
