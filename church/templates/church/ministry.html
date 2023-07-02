@@ -1,0 +1,48 @@
+{% extends 'church/base.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block css_files %}
+<link rel="stylesheet" type="text/css" href="{% static 'church/style.css' %}">
+{% endblock %}
+{% block content %}
+<section class="myHeading">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="myTitle text-center">Ministry</h1>
+                <h6 class="myTitle2 text-center"><a class="myTitleLink" href="{% url 'home' %}">Home </a>/ Ministry</h6>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pt-4 pb-4" data-aos="slide-right">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-4" style="border: none;">
+                    <img class="card-img-top" src="{% static 'church/images/Church-logo.png' %}" height="500px" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">blog.title </h5>
+                        <p class="card-text"> blog.article </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <h3 class="pl-4 pt-3">Latest Posts</h3>
+                    <div class="footer pb-3 p-3">
+                            <div class="footer-img">
+                                <img style="float:left;"  src="{% static 'church/images/Church-logo.png' %}" height="40px" width="40px" alt="">
+                            </div>
+                            <div class="footer-text">
+                                <a class="footer-link" href="" style="font-size: 15px;">Lorem ipsum dolor sit amet.</a>
+                                <br>
+                                <small class="text-muted">12-12-23</small>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
