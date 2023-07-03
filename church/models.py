@@ -51,3 +51,42 @@ class Event(models.Model):
     
     def __str__(self):
         return self.title
+    
+class HomeBlog(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    image = models.ImageField(upload_to='home-blog-img')
+    date = models.DateTimeField(default=timezone.now)
+    slug = models.CharField(max_length=150)
+    
+    class Meta:
+        ordering = ['-date']
+    
+    def __str__(self):
+        return self.title
+    
+class Blog(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    image = models.ImageField(upload_to='home-blog-img')
+    date = models.DateTimeField(default=timezone.now)
+    slug = models.CharField(max_length=150)
+    
+    class Meta:
+        ordering = ['-date']
+    
+    def __str__(self):
+        return self.title
+    
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    image = models.ImageField(upload_to='home-blog-img')
+    date = models.DateTimeField(default=timezone.now)
+    slug = models.CharField(max_length=150)
+    
+    class Meta:
+        ordering = ['-date']
+    
+    def __str__(self):
+        return self.title

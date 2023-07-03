@@ -506,23 +506,7 @@
   }
 
 
-    .time {
-        height: 100%;
-        width: 120px;
-        color: #fff;
-        background-color: #090580;
-        text-align: center;
-    }
-
-    .events {
-        display: flex;
-        box-shadow: 5px 10px #eee;
-        height: 100%;
-    }
-  .details {
-          padding-left: 40px;
-          width: 100%;
-      }
+    
 </style>
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
@@ -626,16 +610,18 @@
                 <div class="col-md-3 mb-5">
                     <div>
                         <h3>LATEST NEWS</h3>
+                        {% for post in posts %}
                         <div class="footer pb-3">
                             <div class="footer-img">
-                                <img style="float:left;" class="rounded-circle" src="{% static 'church/images/Church-logo.png' %}" height="40px" width="40px" alt="">
+                                <img style="float:left;"  src="{{ post.image.url }}" height="40px" width="40px" alt="">
                             </div>
                             <div class="footer-text">
-                                <a class="footer-link" href="" style="font-size: 15px;">Lorem ipsum dolor sit amet.</a>
+                                <a class="footer-link" href="" style="font-size: 15px;">{{ post.title }}</a>
                                 <br>
-                                <small class="text-muted">12-12-23</small>
+                                <small class="text-muted">{{ post.date|date:"j F o" }}</small>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-md-3 mb-5">

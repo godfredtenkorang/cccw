@@ -10,7 +10,8 @@
         <div class="row">
             <div class="col">
                 <h1 class="myTitle text-center">Blog Details</h1>
-                <h6 class="myTitle2 text-center"><a class="myTitleLink" href="{% url 'home' %}">Home </a>/ Blogs Details</h6>
+                <h6 class="myTitle2 text-center"><a class="myTitleLink" href="{% url 'home' %}">Home </a>/ Blogs Details
+                </h6>
             </div>
         </div>
     </div>
@@ -20,11 +21,11 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card mb-3">
-                    <img class="card-img-top" src="{{ blog.image.url }}" height="600px" alt="Card image cap">
+                    <img class="card-img-top" src="{{ post.image.url }}" height="600px" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{ blog.title }}</h5>
-                        <p class="card-text">{{ blog.content }}</p>
-                        <p class="card-text"><small class="text-muted">{{ blog.date|date:"j F o" }}</small></p>
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content }}</p>
+                        <p class="card-text"><small class="text-muted">{{ post.date|date:"j F o" }}</small></p>
                     </div>
                 </div>
             </div>

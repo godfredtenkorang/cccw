@@ -18,17 +18,18 @@
 <section class="pt-5" style="background-color: #eee;">
     <div class="container">
         <div class="row">
+            {% for myblog in myblogs %}
             <div class="col-md-4">
                 <div class="card">
-                    <img src="{% static 'church/images/image1.jpeg' %}" height="300px" alt="">
+                    <img src="{{ myblog.image.url }}" height="300px" alt="">
                     <div class="card-body">
-                        <small>12/12/23</small>
-                        <h3 class="card-title">Spirit of the Lord is from the new life</h3>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam ratione sequi commodi quaerat hic quo sit rerum nihil amet dolorem, reiciendis autem a soluta id officiis tempore cumque, quibusdam similique.</p>
-                        <a class="event-btn" href="{% url 'blog-detail' %}">Read More</a>
+                        <small>{{ myblog.date|date:"j F o" }}</small>
+                        <h3 class="card-title">{{ myblog.title }}</h3>
+                        <a class="event-btn" href="{% url 'blog-view' myblog.slug %}">Read More</a>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </section>

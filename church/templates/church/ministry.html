@@ -30,16 +30,18 @@
             <div class="col-md-4">
                 <div class="card mb-4">
                     <h3 class="pl-4 pt-3">Latest Posts</h3>
-                    <div class="footer pb-3 p-3">
+                    {% for post in posts %}
+                        <div class="footer pb-3 p-3">
                             <div class="footer-img">
-                                <img style="float:left;"  src="{% static 'church/images/Church-logo.png' %}" height="40px" width="40px" alt="">
+                                <img style="float:left;"  src="{{ post.image.url }}" height="40px" width="40px" alt="">
                             </div>
                             <div class="footer-text">
-                                <a class="footer-link" href="" style="font-size: 15px;">Lorem ipsum dolor sit amet.</a>
+                                <a class="footer-link" href="" style="font-size: 15px;">{{ post.title }}</a>
                                 <br>
-                                <small class="text-muted">12-12-23</small>
+                                <small class="text-muted">{{ post.date|date:"j F o" }}</small>
                             </div>
                         </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

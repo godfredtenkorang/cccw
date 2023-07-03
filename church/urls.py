@@ -11,7 +11,8 @@ urlpatterns = [
     path('youtube/', views.youtube, name='youtube'),
     path('ministry/', views.ministry, name='ministry'),
     path('blog/', views.blog, name='blog'),
-    path('blog_detail/', views.blog_detail, name='blog-detail'),
+    path('blog_detail/<slug>/', views.blog_detail, name='blog-detail'),
+    path('blog_view/<slug>/', views.blog_view, name='blog-view'),
     path('contact/', views.contact, name='contact'),
     path('donate/', views.donate, name='donate'),
 ]
