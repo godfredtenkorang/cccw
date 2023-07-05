@@ -129,6 +129,13 @@
         </div>
     </div>
 </section>
+<section>
+    {% for video in videos %}
+    <video class="embed-responsive embed-responsive-1by1" controls="controls">
+        <source src="{{ video.video }}" type="video/mp4">
+    </video>
+    {% endfor %}
+</section>
 <section class="pt-5 pb-4" style="overflow:hidden;">
     <div class="container">
         <div class="row">

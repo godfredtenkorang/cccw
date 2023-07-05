@@ -17,24 +17,14 @@
 <section class="pt-4 pb-4" style="background-color: #c3c2db;">
     <div class="container">
         <div class="row">
+            {% for gallery in galleries %}
             <div class="col-lg-3 col-md-6 col-sm-12 pb-2 text-center">
-                <a href="{% static 'church/images/Church-logo.png' %}" data-lightbox="modals" data-title="Hello">
-                    <img src="{% static 'church/images/Church-logo.png' %}" height="200px" width="100%" alt="">
+                <a href="{{ gallery.image.url }}" data-lightbox="modals" data-title="Hello">
+                    <img src="{{ gallery.image.url }}" height="200px" width="100%" alt="">
                 </a>
                 <h4 class="mt-2"></h4>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-2 text-center">
-                <a href="{% static 'church/images/Church-logo.png' %}" data-lightbox="modals" data-title="Hello">
-                    <img src="{% static 'church/images/Church-logo.png' %}" height="200px" width="100%" alt="">
-                </a>
-                <h4 class="mt-2"></h4>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-2 text-center">
-                <a href="{% static 'church/images/Church-logo.png' %}" data-lightbox="modals" data-title="Hello">
-                    <img src="{% static 'church/images/Church-logo.png' %}" height="200px" width="100%" alt="">
-                </a>
-                <h4 class="mt-2"></h4>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

@@ -15,22 +15,29 @@
         </div>
     </div>
 </section>
-<!-- <section class="pt-5 mt-4 pb-3" style="overflow: hidden;">
+<section class="pt-5 mt-4 pb-3" style="overflow: hidden;">
     <div class="container">
         <div class="row" data-aos="fade-right">
+            <!-- <div class="col-md-12">
+                {% for video in youtubes %}
+                    {% video video.url 'small' %}
+                {% endfor %}
+            </div> -->
             {% for video in youtubes %}
-            <div class="col-lg-4 col-md-6 col-sm-12 text-center">
-                <article class="pb-3">
-                    {% video video.url '320x240' %}
+            <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+                <article class="embed-responsive embed-responsive-16by9 pb-3">
+                    {% video video.url %}
                 </article>
             </div>
-            {% endfor %} -->
-            <!-- <div class="col-lg-6 col-md-6 col-sm-12">
+            {% endfor %}
+            <!-- {% for video in youtubes %}
+            <div class="col-lg-6 col-md-6 col-sm-12">
                 <video class="embed-responsive embed-responsive-16by9" height="400px" controls="controls">
-                    <source src="{{ x.video.url }}" type="video/mp4"/>
+                    <source src="{{ video.url }}" type="video/mp4"/>
                 </video>
-            </div> -->
-        <!-- </div>
+            </div>
+            {% endfor %} -->
+        </div>
     </div>
-</section> -->
+</section>
 {% endblock %}

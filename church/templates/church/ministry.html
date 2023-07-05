@@ -8,25 +8,29 @@
 <section class="myHeading">
     <div class="container">
         <div class="row">
+            {% if ministry %}
             <div class="col">
-                <h1 class="myTitle text-center">Ministry</h1>
-                <h6 class="myTitle2 text-center"><a class="myTitleLink" href="{% url 'home' %}">Home </a>/ Ministry</h6>
+                <h1 class="myTitle text-center">{{ ministry }}</h1>
+                <h6 class="myTitle2 text-center"><a class="myTitleLink" href="{% url 'home' %}">Home </a>/ {{ ministry }}</h6>
             </div>
+            {% endif %}
         </div>
     </div>
 </section>
 <section class="pt-4 pb-4" data-aos="slide-right">
     <div class="container">
         <div class="row">
+            {% for ministry in ministries %}
             <div class="col-md-8">
                 <div class="card mb-4" style="border: none;">
-                    <img class="card-img-top" src="{% static 'church/images/Church-logo.png' %}" height="500px" alt="Card image cap">
+                    <img class="card-img-top" src="{{ ministry.image.url }}" height="500px" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">blog.title </h5>
-                        <p class="card-text"> blog.article </p>
+                        <h5 class="card-title">{{ ministry.title }}</h5>
+                        <p class="card-text">{{ ministry.content }}</p>
                     </div>
                 </div>
             </div>
+            {% endfor %}
             <div class="col-md-4">
                 <div class="card mb-4">
                     <h3 class="pl-4 pt-3">Latest Posts</h3>
@@ -36,7 +40,7 @@
                                 <img style="float:left;"  src="{{ post.image.url }}" height="40px" width="40px" alt="">
                             </div>
                             <div class="footer-text">
-                                <a class="footer-link" href="" style="font-size: 15px;">{{ post.title }}</a>
+                                <a class="footer-link" href="{% url 'post-detail' post.slug %}" style="font-size: 15px;">{{ post.title }}</a>
                                 <br>
                                 <small class="text-muted">{{ post.date|date:"j F o" }}</small>
                             </div>

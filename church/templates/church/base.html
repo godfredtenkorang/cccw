@@ -396,16 +396,17 @@
     display: none;
     position: absolute;
     background-color: #fff;
-    min-width: 200px;
+    min-width: 250px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
 
   .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 10px 13px;
     text-decoration: none;
     display: block;
+    font-size: 15px;
   }
 
   .dropdown-content a:hover {
@@ -547,11 +548,9 @@
                             Ministries <i  class="fa fa-angle-down useful-icons"></i>
                         </a>
                         <div class="dropdown-content" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'ministry' %}">All Ministris</a>
-                            <a class="dropdown-item" href="#">Children Ministry</a>
-                            <a class="dropdown-item" href="#">Youth Ministry</a>
-                            <a class="dropdown-item" href="#">Women's Followship</a>
-                            <a class="dropdown-item" href="#">Men's Fellowship</a>
+                          {% for category in categories %}
+                            <a class="dropdown-item" href="{% url 'ministry' %}?category={{ category.name }}">{{ category.name }}</a>
+                            {% endfor %}
                         </div>
                     </li>
                     <li class="nav-item">
@@ -616,7 +615,7 @@
                                 <img style="float:left;"  src="{{ post.image.url }}" height="40px" width="40px" alt="">
                             </div>
                             <div class="footer-text">
-                                <a class="footer-link" href="" style="font-size: 15px;">{{ post.title }}</a>
+                                <a class="footer-link" href="{% url 'post-detail' post.slug %}" style="font-size: 15px;">{{ post.title }}</a>
                                 <br>
                                 <small class="text-muted">{{ post.date|date:"j F o" }}</small>
                             </div>
@@ -648,7 +647,7 @@
                         <form method="POST">
                             {% csrf_token %}
                             <div class="input-group mb-2">
-                                <input type="email" class="form-control" id="email" placeholder="Email Address">
+                                <input type="email" class="form-control" id="email_address" name="email_address" placeholder="Email Address">
                                 <button type="submit" class="btn btn-outline-secondary myBtn">Send</button>
                             </div>
                         </form>
