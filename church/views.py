@@ -328,7 +328,27 @@ def contact(request):
     }
     return render(request, 'church/contact.html', context)
 
-
+def paster(request):
+    posts = Post.objects.all()
+    category = request.GET.get('category')
+    
+    if category == None:
+        ministries = Ministry.objects.order_by('image')
+    else:
+        ministries = Ministry.objects.filter(category__name=category)
+    categories = MinistryCategory.objects.all()
+    if request.method == 'POST':
+        email_address = request.POST['email_address']
+        newsletter = Newsletter(email_address=email_address)
+        newsletter.save()
+        return redirect('home')
+    context = {
+        'ministries': ministries,
+        'categories': categories,
+        'posts':posts,
+        'title': 'Donate'
+    }
+    return render(request, 'church/paster.html', context)
 
 def donate(request):
     posts = Post.objects.all()

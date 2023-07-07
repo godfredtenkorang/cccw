@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'church/style.css' %}">
 {% endblock %}
 {% block content %}
-    <section class="myHeading">
+    <section class="myHeading" style="overflow:hidden;">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -34,80 +34,96 @@
             </div>
         </div>
     </section>
-    <section class="pt-5 pb-4">
+    <section class="pt-5 pb-5">
         <div class="two alt-two">
             <h1>Our Pastors
                 <span>Get to know our team</span>
             </h1>
         </div>
         <div class="container">
-            <div class="row vh-100">
-                <div class="col-sm-6 col-lg-3 my-auto">
-                    <div class="box shadow-sm p-4">
-                        <div class="image-wrapper mb-3">
-                            <img class="img-fluid" src="https://images.pexels.com/photos/555790/pexels-photo-555790.png"
-                                alt="..." />
+        
+        
+            <div class="row team-row pt-5">
+        
+                <div class="col-md-3 col-sm-6 team-wrap pb-4">
+                    <div class="team-member text-center">
+                        <div class="team-img">
+                            <img src="http://deothemes.com/envato/enigma/html/img/team_1.jpg" alt="">
+                            <div class="overlay">
+                                <div class="team-details text-center">
+                                    <div class="socials mt-20">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        <a href="#"><i class="fa fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="box-desc">
-                            <h5>Jon Doe</h5>
-                            <p>FrontEnd Developer</p>
-                        </div>
-                        <ul class="social">
-                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
+                        <h6 class="team-title">John Marshall</h6>
+                        <span>Designer</span>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3 my-auto">
-                    <div class="box shadow-sm p-4">
-                        <div class="image-wrapper mb-3">
-                            <img class="img-fluid" src="https://images.pexels.com/photos/555790/pexels-photo-555790.png"
-                                alt="..." />
+                <!-- end team member -->
+        
+                <div class="col-md-3 col-sm-6 team-wrap pb-4">
+                    <div class="team-member text-center">
+                        <div class="team-img">
+                            <img src="{% static 'church/images/snr_Rev.jpg' %}" alt="">
+                            <div class="overlay">
+                                <div class="team-details text-center">
+                                    <div class="socials mt-20">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        <a href="#"><i class="fa fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="box-desc">
-                            <h5>Jon Doe</h5>
-                            <p>FrontEnd Developer</p>
-                        </div>
-                        <ul class="social">
-                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
+                        <h6 class="team-title">Snr Rev Ohene Kwapong</h6>
+                        <span>National Chairperson</span>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3 my-auto">
-                    <div class="box shadow-sm p-4">
-                        <div class="image-wrapper mb-3">
-                            <img class="img-fluid" src="https://images.pexels.com/photos/555790/pexels-photo-555790.png"
-                                alt="..." />
+                <!-- end team member -->
+        
+                <div class="col-md-3 col-sm-6 team-wrap pb-4">
+                    <div class="team-member last text-center">
+                        <div class="team-img">
+                            <img src="{% static 'church/images/snr.jpeg' %}" alt="">
+                            <div class="overlay">
+                                <div class="team-details text-center">
+                                    <div class="socials mt-20">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        <a href="#"><i class="fa fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="box-desc">
-                            <h5>Jon Doe</h5>
-                            <p>FrontEnd Developer</p>
-                        </div>
-                        <ul class="social">
-                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
+                        <h6 class="team-title">Rev Micheal Baah Nkansah</h6>
+                        <span>Missions Director</span>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3 my-auto">
-                    <div class="box shadow-sm p-4">
-                        <div class="image-wrapper mb-3">
-                            <img class="img-fluid" src="https://images.pexels.com/photos/555790/pexels-photo-555790.png"
-                                alt="..." />
+                <!-- end team member -->
+                <div class="col-md-3 col-sm-6 team-wrap pb-4">
+                    <div class="team-member last text-center">
+                        <div class="team-img">
+                            <img src="{% static 'church/images/snr.jpeg' %}" alt="">
+                            <div class="overlay">
+                                <div class="team-details text-center">
+                                    <div class="socials mt-20">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        <a href="#"><i class="fa fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="box-desc">
-                            <h5>Jon Doe</h5>
-                            <p>FrontEnd Developer</p>
-                        </div>
-                        <ul class="social">
-                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        </ul>
+                        <h6 class="team-title">Rev Micheal Baah Nkansah</h6>
+                        <span>Missions Director</span>
                     </div>
                 </div>
             </div>
