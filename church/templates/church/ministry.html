@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'church/style.css' %}">
 {% endblock %}
 {% block content %}
-<section class="myHeading">
+<section data-aos="fade-up" class="myHeading">
     <div class="container">
         <div class="row">
             {% if ministry %}
@@ -17,7 +17,7 @@
         </div>
     </div>
 </section>
-<section class="pt-4 pb-4" data-aos="slide-right">
+<section data-aos="fade-down" class="pt-4 pb-4" data-aos="slide-right">
     <div class="container">
         <div class="row">
             {% for ministry in ministries %}

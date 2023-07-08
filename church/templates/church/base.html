@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'church/lightbox.css' %}">
     {% block css_files %}
 
@@ -748,7 +751,7 @@
         </div>
     </nav>
     {% block content %}{% endblock %}
-    <section class="d-flex justify-content-between p-3 text-white" style="background-color: #090580">
+    <section data-aos="fade-down" class="d-flex justify-content-between p-3 text-white" style="background-color: #090580; overflow:hidden;">
         <!-- Left -->
         <div class="me-5">
             <span>Get connected with us on social networks:</span>
@@ -778,18 +781,19 @@
         </div>
         <!-- Right -->
     </section>
-    <section class="pt-5 pb-4" style="background-color:#eee">
+    <section data-aos="fade-up" class="pt-5 pb-4" style="background-color:#eee">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 mb-5">
                     <div>
-                        <h3>ABOUT CCCW</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit numquam commodi.</p>
+                        <h3 style="font-family: Merimeter;">ABOUT CCCW</h3>
+                        <p>Central Charis Chapel Worldwide is a body of Christ and recognizing that the eternal salvation of all comes from faith
+                        and adherence to the true teachings of Jesus Christ.</p>
                     </div>
                 </div>
                 <div class="col-md-3 mb-5">
                     <div>
-                        <h3>LATEST NEWS</h3>
+                        <h3 style="font-family: Merimeter;">LATEST NEWS</h3>
                         {% for post in posts %}
                         <div class="footer pb-3">
                             <div class="footer-img">
@@ -806,25 +810,25 @@
                 </div>
                 <div class="col-md-3 mb-5">
                     <div>
-                        <h3>USEFUL LINKS</h3>
+                        <h3 style="font-family: Merimeter;">USEFUL LINKS</h3>
                         <div>
-                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="">Who We Are?</a></i>
+                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="{% url 'about' %}">Who We Are?</a></i>
                             <br>
-                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="">Latest news</a></i>
+                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="{% url 'blog' %}">Latest news</a></i>
                             <br>
-                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="">Evnets</a></i>
+                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="{% url 'event' %}">Evnets</a></i>
                             <br>
                             <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="">Testimonials</a></i>
                             <br>
-                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="">Need help? Get in touch</a></i>
+                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="{% url 'contact' %}">Need help? Get in touch</a></i>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 2">
                     <div>
-                        <h3>NEWSLETTER</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit numquam commodi odit earum perspiciatis
-                            exercitationem accusantium explicabo nisi debitis</p>
+                        <h3 style="font-family: Merimeter;">NEWSLETTER</h3>
+                        <p>Sign up for our weekly newsletter to stay updated on all news and events at Central Charis Chapel Worldwide. Email updates on new product
+                        Announcements, Gift Ideas, Special Promotions and More.</p>
                         <form method="POST">
                             {% csrf_token %}
                             <div class="input-group mb-2">
@@ -838,7 +842,7 @@
         </div>
     </section>
     <!-- Copyright -->
-    <section style="background-color: #dfdcdc; height:60px">
+    <section data-aos="fade-up" style="background-color: #dfdcdc; height:60px">
         <div class="container">
             <div class="pt-2">
                 <small style="font-family: Roboto;">Copyright © 2023 - Central Charis Chapel Worldwide. All Rights Reserved</small>

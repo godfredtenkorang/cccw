@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'church/style.css' %}">
 {% endblock %}
 {% block content %}
-<section class="myHeading">
+<section data-aos="fade-up" class="myHeading">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -15,7 +15,7 @@
         </div>
     </div>
 </section>
-<section class="pt-5" style="background-color: #eee;">
+<section data-aos="fade-up-left" class="pt-5" style="background-color: #eee;">
     <div class="container">
         <div class="row">
             {% for myblog in myblogs %}

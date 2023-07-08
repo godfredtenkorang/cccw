@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
 <section>
-<div data-aos="fade-left" id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+<div data-aos="fade-up" id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img class="d-block w-100" src="{% static 'church/images/image1.jpeg' %}" height="700px" alt="First slide">
@@ -41,13 +41,13 @@
     </a>
 </div>
 </section>
-<section class="pt-5 event-section pb-3" style="overflow:hidden;">
+<section data-aos="fade-left" class="pt-5 event-section pb-3" style="overflow:hidden;">
     <div class="two alt-two">
         <h1>RECENT EVENTS
             <span>Get to know our events</span>
         </h1>
     </div>
-    <div class="container">
+    <div class="container" data-aos="fade-left">
         <div class="row pt-4">
             {% for event in events %}
             <div class="col-lg-4 col-md-6 col-sm-12 pb-3">
@@ -66,53 +66,54 @@
         </div>
     </div>
 </section>
-<section class="pt-5 pb-5" style="overflow:hidden;">
+<section  class="pt-5 pb-5" style="overflow:hidden;">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <div>
+        <div class="row" data-aos="fade-right">
+            <div class="col-lg-6 col-md-6 col-sm-12 pb-5">
+                <div class="d-flex justify-content-center">
                     <img src="{% static 'church/images/Church-logo.png' %}" height="350px" alt="">
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-12 ">
                 <div>
-                    <h5>About Us</h5>
-                    <h2>Lorem ipsum dolor sit amet consectetur.</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum doloribus quidem tempore excepturi ad sunt deserunt, possimus laborum et rerum eligendi natus impedit nobis, sequi blanditiis quibusdam illo in sint?</p>
+                    <h5 style="color: #B31312;">About Us</h5>
+                    <h2 style="font-family: Merimeter;">WELCOME TO CENTRAL CHARIS CHAPEL WORLDWIDE.</h2>
+                    <p>Central Charis Chapel Worldwide is a body of Christ and recognizing that the eternal salvation of all comes from faith and adherence to the true teachings of
+                    Jesus Christ and accepting that these teachings of salvation are borne out of Scripture and in particular the Gospels.</p>
                     <a class="btn btn-outline-secondary" href="{% url 'about' %}">Read more</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section class="counter-section pt-2" style="background-color: #000; overflow:hidden;">
+<section  class="counter-section pt-2" style="background-color: #000; overflow:hidden;">
     <div class="container-fluid">
-        <div class="row about-row">
+        <div class="row about-row" data-aos="fade-down">
             <div class="col-lg-12 counter-img">
                 <div class="column">
                     <div class="card-img">
-                        <img src="" height="50px" alt="icon">
+                        <img src="{% static 'church/images/people.png' %}" height="50px" alt="icon">
                         <h3 class="pt-3">2000+</h3>
-                        <p style="font-size: 20px; font-weight:bold;">PEOPLE</p>
+                        <p style="font-size: 20px; font-weight:bold;">INSPIRED PEOPLE</p>
                     </div>
                 </div>
                 <div class="column">
                     <div class="card-img">
-                        <img src="" height="50px" alt="icon">
+                        <img src="{% static 'church/images/vol.png' %}" height="50px" alt="icon">
                         <h3 class="pt-3">90+</h3>
                         <p style="font-size: 20px; font-weight:bold;">VOLUNTEERS</p>
                     </div>
                 </div>
                 <div class="column">
                     <div class="card-img">
-                        <img src="" height="50px" alt="icon">
+                        <img src="{% static 'church/images/giving.png' %}" height="50px" alt="icon">
                         <h3 class="pt-3">400+</h3>
                         <p style="font-size: 20px; font-weight:bold;">DONATIONS</p>
                     </div>
                 </div>
                 <div class="column">
                     <div class="card-img">
-                        <img src="" height="50px" alt="icon">
+                        <img src="{% static 'church/images/sermon.png' %}" height="50px" alt="icon">
                         <h3 class="pt-3">500+</h3>
                         <p style="font-size: 20px; font-weight:bold;">SERMONS</p>
                     </div>
@@ -121,14 +122,14 @@
         </div>
     </div>
 </section>
-<section class="pt-5 pb-4" style="overflow:hidden;">
+<section data-aos="fade-up-right" class="pt-5 pb-4" style="overflow:hidden;">
         <div class="two alt-two">
             <h1>RECENT BLOG
                 <span>Get to know our recent posts</span>
             </h1>
         </div>
     <div class="container">
-        <div class="row pt-5">
+        <div class="row pt-5" data-aos="fade-down">
             {% for blog in blogs %}
             <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
                 <div class="card myCard d-flex justify-content-center">
@@ -143,36 +144,36 @@
         </div>
     </div>
 </section>
-<section>
-    {% for v in videos %}
-    <video class="embed-responsive embed-responsive-1by1" controls="controls">
-        <source src="{{ v.video }}" type="video/mp4">
+<section style="overflow: hidden;">
+    {% for v in video %}
+    <video data-aos="fade-up" class="embed-responsive embed-responsive-1by1" controls="controls">
+        <source src="{{ v.video.url }}" type="video/mp4">
     </video>
     {% endfor %}
 </section>
 <section class="pt-5 pb-4" style="overflow:hidden;">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12 pb-5">
+        <div class="row" data-aos="fade-down">
+            <div class="col-lg-4 col-md-4 col-sm-12 pb-5 d-flex justify-content-center">
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <h3 class="h3 pt-4">CALL US</h3>
                             <br>
-                            <P>New Tafo - Akim</P>
+                            <P>New Tafo Akim. Behind Royal Ascot Montessori. CRIG Quarters</P>
                             <br>
-                            <p>+233 (000) 000 000</p>
+                            <p>+233 (247) 907 930</p>
                             <br>
-                            <p>cccw@gmail.com</p>
+                            <p>bethelmediahouse@gmail.com</p>
                         </div>
                         <div class="flip-card-back">
                             <h3 style="color: #B31312;" class="h3 pt-4">CALL US</h3>
                             <br>
-                            <P>New Tafo - Akim</P>
+                            <P>New Tafo Akim. Behind Royal Ascot Montessori. CRIG Quarters</P>
                             <br>
-                            <p>+233 (000) 000 000</p>
+                            <p>+233 (247) 907 930</p>
                             <br>
-                            <p>cccw@gmail.com</p>
+                            <p>bethelmediahouse@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -182,7 +183,7 @@
                     <h6 style="color: #B31312;">Get in Touch</h6>
                     <div class="two">
                         <h1>Don't hesitate to contact us
-                            <span>Example Tagline Text</span>
+                            <span>Will be waiting</span>
                         </h1>
                     </div>
                     <br>

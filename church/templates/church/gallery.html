@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'church/style.css' %}">
 {% endblock %}
 {% block content %}
-<section class="myHeading">
+<section data-aos="fade-up" class="myHeading">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -14,7 +14,7 @@
         </div>
     </div>
 </section>
-<section class="pt-4 pb-4" style="background-color: #c3c2db;">
+<section data-aos="fade-down" class="pt-4 pb-4" style="background-color: #c3c2db;">
     <div class="container">
         <div class="row">
             {% for gallery in galleries %}

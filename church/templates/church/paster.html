@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'church/style.css' %}">
 {% endblock %}
 {% block content %}
-<section class="myHeading">
+<section data-aos="fade-up" class="myHeading">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -15,13 +15,14 @@
         </div>
     </div>
 </section>
-<section class="pt-5 pb-5">
+<section data-aos="fade-left" class="pt-5 pb-5">
     <div class="container">
         <div class="row team-row pt-5">
+            {% for pastor in pastors %}
             <div class="col-md-3 col-sm-6 team-wrap pb-4">
                 <div class="team-member text-center">
                     <div class="team-img">
-                        <img src="http://deothemes.com/envato/enigma/html/img/team_1.jpg" alt="">
+                        <img src="{{ pastor.image.url }}" alt="">
                         <div class="overlay">
                             <div class="team-details text-center">
                                 <div class="socials mt-20">
@@ -33,10 +34,11 @@
                             </div>
                         </div>
                     </div>
-                    <h6 class="team-title">John Marshall</h6>
-                    <span>Designer</span>
+                    <h6 class="team-title">{{ pastor.name }}</h6>
+                    <span>{{ pastor.position }}</span>
                 </div>
             </div>
+            {% endfor %}
             <!-- end team member -->
 
             <div class="col-md-3 col-sm-6 team-wrap pb-4">

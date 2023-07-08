@@ -8,7 +8,7 @@ def home(request):
     events = HomeEvent.objects.all()
     blogs = HomeBlog.objects.all()
     posts = Post.objects.all()
-    videos = Video.objects.all()
+    video = Video.objects.all()
     category = request.GET.get('category')
     minstry = Ministry.objects.filter(category__name=category).first()
     
@@ -29,7 +29,7 @@ def home(request):
         'events': events,
         'blogs': blogs,
         'posts': posts,
-        'videos': videos,
+        'video': video,
     }
     return render(request, 'church/home.html', context)
 
@@ -329,6 +329,7 @@ def contact(request):
     return render(request, 'church/contact.html', context)
 
 def paster(request):
+    pastors = Pastor.objects.all()
     posts = Post.objects.all()
     category = request.GET.get('category')
     
@@ -343,6 +344,7 @@ def paster(request):
         newsletter.save()
         return redirect('home')
     context = {
+        'pastors': pastors,
         'ministries': ministries,
         'categories': categories,
         'posts':posts,

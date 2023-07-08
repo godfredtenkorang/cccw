@@ -15,6 +15,7 @@ admin.site.register(YouTube, AdminVideo)
 admin.site.register(Contact)
 admin.site.register(Newsletter)
 admin.site.register(Video)
+admin.site.register(Pastor)
 admin.site.site_header = "Church Admin"
 admin.site.site_title = "Church Admin Area"
 admin.site.index_title = "Welcome to the Church Admin Area"

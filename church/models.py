@@ -135,6 +135,17 @@ class Newsletter(models.Model):
     
     def __str__(self):
         return str(self.email_address)
+
+class Pastor(models.Model):
+    name = models.CharField(max_length=100)
+    position = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='paster-img')
+    facebook = models.URLField()
+    gmail = models.URLField()
+    date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name
     
 class Video(models.Model):
     caption = models.CharField(max_length=100)
