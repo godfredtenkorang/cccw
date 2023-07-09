@@ -8,9 +8,12 @@
 <section data-aos="fade-up" class="myHeading">
     <div class="container">
         <div class="row">
-            <div class="col">
-                <h1 class="myTitle text-center">Blog Details</h1>
-                <h6 class="myTitle2 text-center"><a class="myTitleLink" href="{% url 'home' %}">Home </a>/ Blogs Details</h6>
+            <div class="col pt-4">
+                <div class="headers alt-headers pt-5">
+                    <h1 style="color: #fff;" class="pt-5">Blog Details
+                        <span style="color: #fff;"><a style="color: #fff;" href="{% url 'home' %}">Home</a> / Blog Details</span>
+                    </h1>
+                </div>
             </div>
         </div>
     </div>
@@ -19,10 +22,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div class="card mb-3">
+                <div class="card mb-3" style="border: none;">
                     <img class="card-img-top" src="{{ blog.image.url }}" height="600px" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{ blog.title }}</h5>
+                        <h2 class="card-title">{{ blog.title }}</h2>
                         <p class="card-text">{{ blog.content }}</p>
                         <p class="card-text"><small class="text-muted">{{ blog.date|date:"j F o" }}</small></p>
                     </div>

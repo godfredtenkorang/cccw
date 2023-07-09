@@ -1,473 +1,272 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="{% static 'church/images/Church-logo.png' %}" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'church/lightbox.css' %}">
-    {% block css_files %}
 
-    {% endblock %}
-    {% if title %}
-        <title>Central Charis Chapel Worldwide - {{ title }}</title>
-    {% else %}
-        <title>Central Charis Chapel Worldwide</title>
-    {% endif %}
-    <!-- #090580, #B31312-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="{% static 'church/images/Church-logo.png' %}" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'church/lightbox.css' %}">
+  {% block css_files %}
+
+  {% endblock %}
+  {% if title %}
+  <title>Central Charis Chapel Worldwide - {{ title }}</title>
+  {% else %}
+  <title>Central Charis Chapel Worldwide</title>
+  {% endif %}
+  <!-- #090580, #B31312-->
 </head>
 <style>
-
-    body.lb-disable-scrolling {
-  overflow: hidden;
-}
-
-.lightboxOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  background-color: black;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  opacity: 0.8;
-  display: none;
-}
-
-.lightbox {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  z-index: 10000;
-  text-align: center;
-  line-height: 0;
-  font-weight: normal;
-  outline: none;
-}
-
-.lightbox .lb-image {
-  display: block;
-  height: auto;
-  max-width: inherit;
-  max-height: none;
-  border-radius: 3px;
-
-  /* Image border */
-  border: 4px solid white;
-}
-
-.lightbox a img {
-  border: none;
-}
-
-.lb-outerContainer {
-  position: relative;
-  zoom: 1;
-  width: 250px;
-  height: 250px;
-  margin: 0 auto;
-  border-radius: 4px;
-
-  /* Background color behind image.
-     This is visible during transitions. */
-  background-color: white;
-}
-
-.lb-outerContainer:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.lb-loader {
-  position: absolute;
-  top: 43%;
-  left: 0;
-  height: 25%;
-  width: 100%;
-  text-align: center;
-  line-height: 0;
-}
-
-.lb-cancel {
-  display: block;
-  width: 32px;
-  height: 32px;
-  margin: 0 auto;
-  background: url("{% static 'church/images/loading.gif' %}") no-repeat;
-}
-
-.lb-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-}
-
-.lb-container > .nav {
-  left: 0;
-}
-
-.lb-nav a {
-  outline: none;
-  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
-}
-
-.lb-prev, .lb-next {
-  height: 100%;
-  cursor: pointer;
-  display: block;
-}
-
-.lb-nav a.lb-prev {
-  width: 34%;
-  left: 0;
-  float: left;
-  background: url("{% static 'church/images/prev.png' %}") left 48% no-repeat;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
-  transition: opacity 0.6s;
-}
-
-.lb-nav a.lb-prev:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
-
-.lb-nav a.lb-next {
-  width: 64%;
-  right: 0;
-  float: right;
-  background: url("{% static 'church/images/next.png' %}") right 48% no-repeat;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
-  transition: opacity 0.6s;
-}
-
-.lb-nav a.lb-next:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
-
-.lb-dataContainer {
-  margin: 0 auto;
-  padding-top: 5px;
-  zoom: 1;
-  width: 100%;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.lb-dataContainer:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.lb-data {
-  padding: 0 4px;
-  color: #ccc;
-}
-
-.lb-data .lb-details {
-  width: 85%;
-  float: left;
-  text-align: left;
-  line-height: 1.1em;
-}
-
-.lb-data .lb-caption {
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 1em;
-}
-
-.lb-data .lb-caption a {
-  color: #4ae;
-}
-
-.lb-data .lb-number {
-  display: block;
-  clear: left;
-  padding-bottom: 1em;
-  font-size: 12px;
-  color: #999999;
-}
-
-.lb-data .lb-close {
-  display: block;
-  float: right;
-  width: 30px;
-  height: 30px;
-  background: url("{% static 'church/images/close.png' %}") top right no-repeat;
-  text-align: right;
-  outline: none;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-  opacity: 0.7;
-  -webkit-transition: opacity 0.2s;
-  -moz-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-}
-
-.lb-data .lb-close:hover {
-  cursor: pointer;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
-
-    .myBtn {
-    border-radius: 0;
-}
-/*-----------contact start------------*/
-/*
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 300px;
-  perspective: 1000px;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-}
-
-.flip-card:focus {
-    outline: 0;
-}
-
-.flip-card:hover .flip-card-inner,
-.flip-card:focus .flip-card-inner{
-  transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.flip-card-front {
-  padding-top: 50px;
-  background: linear-gradient(to left, #090580, #171391);
-  color: #fff;
-  z-index: 2;
-  justify-content: center;
-  align-items: center;
-}
-
-.flip-card-back {
-  padding-top: 50px;
-  background: linear-gradient(to right, #fff, #eee);
-  color: #000;
-  transform: rotateY(180deg);
-  z-index: 1;
-  justify-content: center;
-  align-items: center;
-}*/
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 300px;
-  perspective: 1000px;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.flip-card-front {
-  background-color: #090580;
-  color: #fff;
-}
-
-.flip-card-back {
-  background-color: #eee;
-  color: #000;
-  transform: rotateY(180deg);
-}
-.h3 {
-  font-size: 20px;
-  font-family: Verdana, sans-serif;
-  font-weight: bold;
-  color: #fff;
-}
-
-/*-----------contact end------------*/
-/*-------------Footer start--------------*/
-
-  .footer {
-    display: flex;
+  .counter-img {
+    background-image: url("{% static 'church/images/image3.jpeg' %}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
   }
 
-  .footer-img {
-    max-width: 100%;
-    max-height: 100%;
+  .counter-img::before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.7;
   }
 
-  .footer-text {
-    padding-left: 10px;
+  body.lb-disable-scrolling {
+    overflow: hidden;
   }
 
-  .footer-link {
-    color: #000;
+  .lightboxOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: black;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+    opacity: 0.8;
+    display: none;
   }
 
-  .footer-link:hover {
-    color: #000;
-    text-decoration: none;
+  .lightbox {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+    text-align: center;
+    line-height: 0;
+    font-weight: normal;
+    outline: none;
   }
 
-  .footer-list {
-    list-style-type: circle;
-    color: #000;
-    font-size: 20px;
-    line-height: 2rem;
+  .lightbox .lb-image {
+    display: block;
+    height: auto;
+    max-width: inherit;
+    max-height: none;
+    border-radius: 3px;
+
+    /* Image border */
+    border: 4px solid white;
   }
 
-  .footer-links {
-    position: relative;
-    color: #000;
-  }
-
-  .footer-links:hover {
-    text-decoration: none;
-    color: #000;
-  }
-
-  .useful-links {
-    color: #000;
-    padding-left: 10px;
-  }
-  .useful-links:hover {
-    text-decoration: none;
-    color: #000;
-  }
-  .useful-icons {
-    color: #090580;
-  }
-
-.icon-bar a {
-  margin: 10px;
-  transition: all 0.3s ease;
-  color: #000;
-  font-size: 15px;
-}
-
-.facebook {
-  color: #000;
-}
-
-.twitter {
-  color: #000;
-}
-
-.google {
-  color: #000;
-}
-
-.linkedin {
-  color: #000;
-}
-
-.youtube {
-  color: #000;
-}
-
-.content {
-  margin-left: 75px;
-  font-size: 30px;
-}
-
-  /*-------------Footer End--------------*/
-
-
-  .dropbtn {
-    color: white;
+  .lightbox a img {
     border: none;
   }
 
-  .dropdown {
+  .lb-outerContainer {
     position: relative;
-    display: inline-block;
+    zoom: 1;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 4px;
+
+    /* Background color behind image.
+     This is visible during transitions. */
+    background-color: white;
   }
 
-  .dropdown-content {
-    display: none;
+  .lb-outerContainer:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .lb-loader {
     position: absolute;
-    background-color: #fff;
-    min-width: 250px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    top: 43%;
+    left: 0;
+    height: 25%;
+    width: 100%;
+    text-align: center;
+    line-height: 0;
   }
 
-  .dropdown-content a {
-    color: black;
-    padding: 10px 13px;
-    text-decoration: none;
+  .lb-cancel {
     display: block;
-    font-size: 15px;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    background: url("{% static 'church/images/loading.gif' %}") no-repeat;
   }
 
-  .dropdown-content a:hover {
-    background-color: #eee;
+  .lb-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
   }
 
-  .dropdown:hover .dropdown-content {
+  .lb-container>.nav {
+    left: 0;
+  }
+
+  .lb-nav a {
+    outline: none;
+    background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+  }
+
+  .lb-prev,
+  .lb-next {
+    height: 100%;
+    cursor: pointer;
     display: block;
   }
-/*----------All Heading----------*/
+
+  .lb-nav a.lb-prev {
+    width: 34%;
+    left: 0;
+    float: left;
+    background: url("{% static 'church/images/prev.png' %}") left 48% no-repeat;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    -webkit-transition: opacity 0.6s;
+    -moz-transition: opacity 0.6s;
+    -o-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+  }
+
+  .lb-nav a.lb-prev:hover {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+
+  .lb-nav a.lb-next {
+    width: 64%;
+    right: 0;
+    float: right;
+    background: url("{% static 'church/images/next.png' %}") right 48% no-repeat;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    -webkit-transition: opacity 0.6s;
+    -moz-transition: opacity 0.6s;
+    -o-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+  }
+
+  .lb-nav a.lb-next:hover {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+
+  .lb-dataContainer {
+    margin: 0 auto;
+    padding-top: 5px;
+    zoom: 1;
+    width: 100%;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  .lb-dataContainer:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .lb-data {
+    padding: 0 4px;
+    color: #ccc;
+  }
+
+  .lb-data .lb-details {
+    width: 85%;
+    float: left;
+    text-align: left;
+    line-height: 1.1em;
+  }
+
+  .lb-data .lb-caption {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1em;
+  }
+
+  .lb-data .lb-caption a {
+    color: #4ae;
+  }
+
+  .lb-data .lb-number {
+    display: block;
+    clear: left;
+    padding-bottom: 1em;
+    font-size: 12px;
+    color: #999999;
+  }
+
+  .lb-data .lb-close {
+    display: block;
+    float: right;
+    width: 30px;
+    height: 30px;
+    background: url("{% static 'church/images/close.png' %}") top right no-repeat;
+    text-align: right;
+    outline: none;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    opacity: 0.7;
+    -webkit-transition: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+  }
+
+  .lb-data .lb-close:hover {
+    cursor: pointer;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+
+  .myBtn {
+    border-radius: 0;
+  }
+
+  /*----------All Heading----------*/
   .myHeading {
     background-image: url("{% static 'church/images/image3.jpeg' %}");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 35vh;
+    height: 50vh;
   }
+
   .myHeading::before {
     content: "";
     position: absolute;
@@ -477,72 +276,52 @@
     right: 0;
     bottom: 0;
     opacity: 0.7;
-    height: 35vh;
+    height: 50vh;
     background: #000;
   }
-  .myTitle {
-    font-weight: 600;
-    font-family: Merriweather;
-    transform: translate(0%, 250%);
-    color: #fff;
-  }
 
-  .myTitle2 {
-    font-weight: 300;
-    font-family: Merriweather;
-    transform: translate(0%, 700%);
-    color: #fff;
-  }
-
-  .myTitleLink {
-    color: #fff;
-  }
-  .myTitleLink:hover {
-    color: #eee;
-    text-decoration: none;
-  }
   /*----------All Heading end----------*/
-
-    .div-section {
-        background-image: url("{% static 'church/images/image1.jpeg' %}");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        height: 250px;
+  /*--------------Contact start--------------*/
+  .div-section {
+    background-image: url("{% static 'church/images/image1.jpeg' %}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
   }
 
   .div-section::before {
-        content: "";
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 250px;
-        opacity: 0.7;
-        background: #090580;
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 250px;
+    opacity: 0.7;
+    background: #090580;
   }
 
   .div-section1 {
-        background-image: url("{% static 'church/images/image1.jpeg' %}");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        height: 250px;
+    background-image: url("{% static 'church/images/image1.jpeg' %}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
   }
 
   .div-section1::before {
-        content: "";
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 250px;
-        opacity: 0.7;
-        background: #B31312;
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 250px;
+    opacity: 0.7;
+    background: #B31312;
   }
 
   .div-text {
@@ -550,343 +329,235 @@
     position: relative;
   }
 
-
-    /* Our Team
--------------------------------------------------------*/
-
-.our-team .team-row {
-  margin-left: -40px;
-  margin-right: -40px;
-}
-
-.our-team .team-wrap {
-  padding: 0 40px;
-}
-
-.our-team .container-fluid {
-  padding: 0 50px;
-}
-
-.team-img img {
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-  overflow: hidden;
-  width: 100%;
-  height: 300px;
-}
-
-.team-member,
-.team-img {
-  position: relative;
-  overflow: hidden;
-}
-
-.team-title {
-  margin: 30px 0 7px;
-}
-
-.overlay {
-  background-color: rgba(20,20,20,.7);
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-}
-
-.team-details {
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  padding: 5%;
-  overflow: hidden;
-  width: 100%;
-  z-index: 2;
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-}
-
-.team-details p {
-  color: #fff;
-}
-
-.team-img:hover .team-details {
-  opacity: 1;
-  margin-top: -80px;
-}
-
-.team-img:hover .overlay {
-  opacity: 1;
-}
-
-.socials a {
-  display: inline-block;
-  width: 37px;
-  height: 37px;
-  background-color: transparent;
-}
-
-.socials i {
-  line-height: 37px;
-  color: #616161;
-  font-size: 14px;
-  width: 37px;
-  height: 37px;
-  border-radius: 50%;
-  text-align: center;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
-
-.team-details .socials i {
-	color: #fff;
-}
-
-.socials a:hover i {
-  color: #fff;
-  background-color: #355c7d;
-}
-
-.carousel-item {
-  background: no-repeat scroll center scroll;
-  -webkit-background-size: cover;
-  background-size: cover;
-}
-
-.carousel-item::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #000;
-  opacity: 0.5;
-}
-
-.carousel-caption {
-  text-align: center;
-  justify-content: center;
-}
-
-.carousel-caption .h1 {
-  display: inline-block;
-  font-weight: 700;
-  text-align: center;
-}
-
-.carousel-caption p {
-  font-size: 18px;
-  text-align: center;
-}
+  /*--------------Contact start--------------*/
 </style>
+
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <!-- <a class="navbar-brand" href="{% url 'home' %}">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <!-- <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'church/images/Church-logo.png' %}" width="50" height="50" class="d-inline-block align-top" alt="">
                 <span style="font-size: 35px;">CCCW</span>
             </a> -->
-            <a href="{% url 'home' %}"><img src="{% static 'church/images/Church-logo.png' %}" height="50px" alt=""></a>
-            <h1 class="d-none d-md-block pl-2"><a style="font-size: 30px; font-weight: 800; color: #090580; font-family: Roboto;"
-                    class="navbar-brand text-center" href="{% url 'home' %}">Central Charis <h6 style="font-size: 20px;">
-                        Chapel Worldwide</h6></a></h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link my-nav dropbtn" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Pages <i class="fa fa-angle-down useful-icons"></i>
-                        </a>
-                        <div class="dropdown-content" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'about' %}">About Us</a>
-                            <a class="dropdown-item" href="{% url 'event' %}">Events</a>
-                            <a class="dropdown-item" href="{% url 'gallery' %}">Gallery</a>
-                            <a class="dropdown-item" href="{% url 'pastor' %}">Our Pasters</a>
-                            <a class="dropdown-item" href="{% url 'youtube' %}">YouTube Channel</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link my-nav dropbtn" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Ministries <i  class="fa fa-angle-down useful-icons"></i>
-                        </a>
-                        <div class="dropdown-content" aria-labelledby="navbarDropdown">
-                          {% for category in categories %}
-                            <a class="dropdown-item" href="{% url 'ministry' %}?category={{ category.name }}">{{ category.name }}</a>
-                            {% endfor %}
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog' %}">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                    </li>
-                    <div>
-                        <a class="btn btn-outline-secondary col-sm d-flex justify-content-center" href="{% url 'donate' %}">Donate</a>
-                    </div>
-                </ul>
+      <a href="{% url 'home' %}"><img src="{% static 'church/images/Church-logo.png' %}" height="50px" alt=""></a>
+      <h1 class="d-none d-md-block pl-2"><a
+          style="font-size: 30px; font-weight: 800; color: #090580; font-family: Roboto;"
+          class="navbar-brand text-center" href="{% url 'home' %}">Central Charis <h6 style="font-size: 20px;">
+            Chapel Worldwide</h6></a></h1>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link my-nav dropbtn" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Pages <i class="fa fa-angle-down useful-icons"></i>
+            </a>
+            <div class="dropdown-content" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'about' %}">About Us</a>
+              <a class="dropdown-item" href="{% url 'event' %}">Events</a>
+              <a class="dropdown-item" href="{% url 'gallery' %}">Gallery</a>
+              <a class="dropdown-item" href="{% url 'pastor' %}">Our Pasters</a>
+              <a class="dropdown-item" href="{% url 'youtube' %}">YouTube Channel</a>
             </div>
-        </div>
-    </nav>
-    {% block content %}{% endblock %}
-    <section data-aos="fade-down" class="d-flex justify-content-between p-3 text-white" style="background-color: #090580; overflow:hidden;">
-        <!-- Left -->
-        <div class="me-5">
-            <span>Get connected with us on social networks:</span>
-        </div>
-        <!-- Left -->
-    
-        <!-- Right -->
-        <div class="icon-bar">
-            <a href="" class="text-white">
-                <i class="fa fa-facebook-f"></i>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link my-nav dropbtn" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Ministries <i class="fa fa-angle-down useful-icons"></i>
             </a>
-            <a href="" class="text-white">
-                <i class="fa fa-twitter"></i>
-            </a>
-            <a href="" class="text-white">
-                <i class="fa fa-google"></i>
-            </a>
-            <a href="" class="text-white">
-                <i class="fa fa-instagram"></i>
-            </a>
-            <a href="" class="text-white">
-                <i class="fa fa-linkedin"></i>
-            </a>
-            <a href="" class="text-white">
-                <i class="fa fa-github"></i>
-            </a>
-        </div>
-        <!-- Right -->
-    </section>
-    <section data-aos="fade-up" class="pt-5 pb-4" style="background-color:#eee">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 mb-5">
-                    <div>
-                        <h3 style="font-family: Merimeter;">ABOUT CCCW</h3>
-                        <p>Central Charis Chapel Worldwide is a body of Christ and recognizing that the eternal salvation of all comes from faith
-                        and adherence to the true teachings of Jesus Christ.</p>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-5">
-                    <div>
-                        <h3 style="font-family: Merimeter;">LATEST NEWS</h3>
-                        {% for post in posts %}
-                        <div class="footer pb-3">
-                            <div class="footer-img">
-                                <img style="float:left;"  src="{{ post.image.url }}" height="40px" width="40px" alt="">
-                            </div>
-                            <div class="footer-text">
-                                <a class="footer-link" href="{% url 'post-detail' post.slug %}" style="font-size: 15px;">{{ post.title }}</a>
-                                <br>
-                                <small class="text-muted">{{ post.date|date:"j F o" }}</small>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="col-md-3 mb-5">
-                    <div>
-                        <h3 style="font-family: Merimeter;">USEFUL LINKS</h3>
-                        <div>
-                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="{% url 'about' %}">Who We Are?</a></i>
-                            <br>
-                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="{% url 'blog' %}">Latest news</a></i>
-                            <br>
-                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="{% url 'event' %}">Evnets</a></i>
-                            <br>
-                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="">Testimonials</a></i>
-                            <br>
-                            <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="{% url 'contact' %}">Need help? Get in touch</a></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 2">
-                    <div>
-                        <h3 style="font-family: Merimeter;">NEWSLETTER</h3>
-                        <p>Sign up for our weekly newsletter to stay updated on all news and events at Central Charis Chapel Worldwide. Email updates on new product
-                        Announcements, Gift Ideas, Special Promotions and More.</p>
-                        <form method="POST">
-                            {% csrf_token %}
-                            <div class="input-group mb-2">
-                                <input type="email" class="form-control" id="email_address" name="email_address" placeholder="Email Address">
-                                <button type="submit" class="btn btn-outline-secondary myBtn">Send</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+            <div class="dropdown-content" aria-labelledby="navbarDropdown">
+              {% for category in categories %}
+              <a class="dropdown-item" href="{% url 'ministry' %}?category={{ category.name }}">{{ category.name }}</a>
+              {% endfor %}
             </div>
-        </div>
-    </section>
-    <!-- Copyright -->
-    <section data-aos="fade-up" style="background-color: #dfdcdc; height:60px">
-        <div class="container">
-            <div class="pt-2">
-                <small style="font-family: Roboto;">Copyright © 2023 - Central Charis Chapel Worldwide. All Rights Reserved</small>
-            </div>
-        </div>
-    </section>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-    </script>
-    <script src="{% static 'church/lightbox-plus-jquery.js' %}"></script>
-    <script src="{% static 'church/style.js' %}"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+          <div>
+            <a class="btn btn-outline-secondary col-sm d-flex justify-content-center"
+              href="{% url 'donate' %}">Donate</a>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% block content %}{% endblock %}
+  <section data-aos="fade-down" class="d-flex justify-content-between p-3 text-white"
+    style="background-color: #090580; overflow:hidden;">
+    <!-- Left -->
+    <div class="me-5">
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <!-- Left -->
 
-    <script>
-        (function () {
-                'use strict';
-                window.addEventListener('load', function () {
-                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                    var forms = document.getElementsByClassName('needs-validation');
-                    // Loop over them and prevent submission
-                    var validation = Array.prototype.filter.call(forms, function (form) {
-                        form.addEventListener('submit', function (event) {
-                            if (form.checkValidity() === false) {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-                            form.classList.add('was-validated');
-                        }, false);
-                    });
-                }, false);
-            })();
-    </script>
+    <!-- Right -->
+    <div class="icon-bar">
+      <a href="" class="text-white">
+        <i class="fa fa-facebook-f"></i>
+      </a>
+      <a href="" class="text-white">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a href="" class="text-white">
+        <i class="fa fa-google"></i>
+      </a>
+      <a href="" class="text-white">
+        <i class="fa fa-instagram"></i>
+      </a>
+      <a href="" class="text-white">
+        <i class="fa fa-linkedin"></i>
+      </a>
+      <a href="" class="text-white">
+        <i class="fa fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <section data-aos="fade-up" class="pt-5 pb-4" style="background-color:#eee">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mb-5">
+          <div>
+            <h3 style="font-family: Merimeter;">ABOUT CCCW</h3>
+            <p>Central Charis Chapel Worldwide is a body of Christ and recognizing that the eternal salvation of all
+              comes from faith
+              and adherence to the true teachings of Jesus Christ.</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-5">
+          <div>
+            <h3 style="font-family: Merimeter;">LATEST NEWS</h3>
+            {% for post in posts %}
+            <div class="footer pb-3">
+              <div class="footer-img">
+                <img style="float:left;" src="{{ post.image.url }}" height="40px" width="40px" alt="">
+              </div>
+              <div class="footer-text">
+                <a class="footer-link" href="{% url 'post-detail' post.slug %}" style="font-size: 15px;">{{ post.title
+                  }}</a>
+                <br>
+                <small class="text-muted">{{ post.date|date:"j F o" }}</small>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-md-3 mb-5">
+          <div>
+            <h3 style="font-family: Merimeter;">USEFUL LINKS</h3>
+            <div>
+              <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="{% url 'about' %}">Who We
+                  Are?</a></i>
+              <br>
+              <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="{% url 'blog' %}">Latest
+                  news</a></i>
+              <br>
+              <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="{% url 'event' %}">Evnets</a></i>
+              <br>
+              <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="">Testimonials</a></i>
+              <br>
+              <i class="fa fa-angle-right useful-icons"><a class="useful-links" href="{% url 'contact' %}">Need help?
+                  Get in touch</a></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 2">
+          <div>
+            <h3 style="font-family: Merimeter;">NEWSLETTER</h3>
+            <p>Sign up for our weekly newsletter to stay updated on all news and events at Central Charis Chapel
+              Worldwide. Email updates on new product
+              Announcements, Gift Ideas, Special Promotions and More.</p>
+            <form method="POST">
+              {% csrf_token %}
+              <div class="input-group mb-2">
+                <input type="email" class="form-control" id="email_address" name="email_address"
+                  placeholder="Email Address">
+                <button type="submit" class="btn btn-outline-secondary myBtn">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Copyright -->
+  <section data-aos="fade-up" style="background-color: #dfdcdc; height:60px; overflow:hidden;">
+    <div class="container">
+      <div class="pt-2">
+        <small style="font-family: Roboto;">Copyright © 2023 - Central Charis Chapel Worldwide. All Rights
+          Reserved</small>
+      </div>
+    </div>
+  </section>
+  <a href="#" id="up">
+    <p>&#8593;</p>
+  </a>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script src="{% static 'church/lightbox-plus-jquery.js' %}"></script>
+  <script src="{% static 'church/style.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script>
+
+    let scrollToTop = document.getElementById("up");
+
+    window.onscroll = function () {
+      scroll();
+    };
+
+    function scroll() {
+      if (
+        document.body.scrollTop > 100 ||
+        document.documentElement.scrollTop > 100
+      ) {
+        scrollToTop.style.display = "flex";
+      } else {
+        scrollToTop.style.display = "none";
+      }
+    }
+  </script>
+  <script>
+    (function () {
+      'use strict';
+      window.addEventListener('load', function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+          form.addEventListener('submit', function (event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
 </body>
 
 </html>

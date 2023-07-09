@@ -8,14 +8,17 @@
 <section data-aos="fade-up" class="myHeading">
     <div class="container">
         <div class="row">
-            <div class="col">
-                <h1 class="myTitle text-center">Contact Us</h1>
-                <h6 class="myTitle2 text-center"><a class="myTitleLink" href="{% url 'home' %}">Home </a>/ Contact us</h6>
+            <div class="col pt-4">
+                <div class="headers alt-headers pt-5">
+                    <h1 style="color: #fff;" class="pt-5">Contact Us
+                        <span style="color: #fff;"><a style="color: #fff;" href="{% url 'home' %}">Home</a> / Contact us</span>
+                    </h1>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<div class="row">
+<div class="row" style="overflow: hidden;">
     <div class="col-md-12">
         {% if messages %}
         {% for message in messages %}
@@ -101,6 +104,31 @@
                     <img src="{% static 'church/images/image1.jpeg' %}" height="350px" width="100%" alt="">
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+<section style="overflow: hidden;">
+    <div class="mapouter embed-responsive embed-responsive-1by1">
+        <div class="gmap_canvas"><iframe width="1080" height="500" id="gmap_canvas"
+                src="https://maps.google.com/maps?q=6JMP+C86,%20Nobi%20Road,%20New%20Tafo%20Akyem&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                href="https://123movies-i.net">dark phoenix 123movies</a><br>
+            <style>
+                .mapouter {
+                    position: relative;
+                    text-align: right;
+                    height: 600px;
+                    width: 100%;
+                }
+            </style><a href="https://www.embedgooglemap.net"></a>
+            <style>
+                .gmap_canvas {
+                    overflow: hidden;
+                    background: none !important;
+                    height: 600px;
+                    width: 100%;
+                }
+            </style>
         </div>
     </div>
 </section>
