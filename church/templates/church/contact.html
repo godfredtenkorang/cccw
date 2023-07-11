@@ -1,5 +1,6 @@
 {% extends 'church/base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% load embed_video_tags %}
 {% block css_files %}
 <link rel="stylesheet" type="text/css" href="{% static 'church/style.css' %}">
@@ -11,7 +12,8 @@
             <div class="col pt-4">
                 <div class="headers alt-headers pt-5">
                     <h1 style="color: #fff;" class="pt-5">Contact Us
-                        <span style="color: #fff;"><a style="color: #fff;" href="{% url 'home' %}">Home</a> / Contact us</span>
+                        <span style="color: #fff;"><a style="color: #fff;" href="{% url 'home' %}">Home</a> / Contact
+                            us</span>
                     </h1>
                 </div>
             </div>
@@ -27,7 +29,7 @@
         {% endif %}
     </div>
 </div>
-<section data-aos="fade-left" class="pt-5 pb-3" style="background-color: #eee; overflow:hidden;">
+<section data-aos="fade-left" class="pt-5 pb-5" style="background-color: #eee; overflow:hidden;">
     <div class="container">
         <div class="row">
             <div class="div-section col-lg-4 col-md-4 col-sm-12 pb-3">
@@ -60,48 +62,23 @@
         </div>
     </div>
 </section>
-<section data-aos="fade-right" class="pt-5" style="background-color: #eee; overflow:hidden;">
+<section data-aos="fade-right" class="pt-5 pb-5" style="background-color:#faf9f9; overflow:hidden;">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <form method="POST" class="needs-validation pt-3" novalidate>
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-                        <div class="invalid-feedback">
-                            Please enter your name.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-                        <div class="invalid-feedback">
-                            Please enter a valid email.
-                        </div>
-                    </div>
-                    <div class="form-group mt-3">
-                        <input type="number" class="form-control" id="phone" name="phone" placeholder="Phone" required>
-                        <div class="invalid-feedback">
-                            Please enter a phone number.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
-                        <div class="invalid-feedback">
-                            Please enter a subject.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Message" required></textarea>
-                        <div class="invalid-feedback">
-                            Please enter your message.
-                        </div>
-                    </div>
-                    <button class="btn btn-outline-secondary mb-3" type="submit">Send Message</button>
-                </form>
+            <div class="col-lg-6 col-md-6 col-sm-12 pb-3">
+                <div class="card p-4">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ contact_form|crispy }}
+                        <p>
+                            <button type="submit" class="btn btn-outline-secondary">Send Message</button>
+                        </p>
+                    </form>
+                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12" style="overflow:hidden;">
                 <div>
-                    <img src="{% static 'church/images/image1.jpeg' %}" height="350px" width="100%" alt="">
+                    <img src="{% static 'church/images/image1.jpeg' %}" height="520px" width="100%" alt="">
                 </div>
             </div>
         </div>

@@ -12,10 +12,11 @@ admin.site.register(Blog)
 admin.site.register(Post)
 admin.site.register(Gallery)
 admin.site.register(YouTube, AdminVideo)
-admin.site.register(Contact)
+# admin.site.register(Contact)
 admin.site.register(Newsletter)
 admin.site.register(Video)
 admin.site.register(Pastor)
+admin.site.register(Payment)
 admin.site.site_header = "Church Admin"
 admin.site.site_title = "Church Admin Area"
 admin.site.index_title = "Welcome to the Church Admin Area"

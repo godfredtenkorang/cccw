@@ -17,4 +17,5 @@ urlpatterns = [
     path('post_detail/<slug>/', views.post_detail, name='post-detail'),
     path('contact/', views.contact, name='contact'),
     path('donate/', views.donate, name='donate'),
+    path('make_payment/<str:ref>/', views.verify_payment, name='verify-payment')
 ]

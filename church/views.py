@@ -1,5 +1,7 @@
-from django.shortcuts import render, redirect
-from django.utils.datastructures import MultiValueDictKeyError
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
+from django.http import HttpRequest
+from . import forms
+from django.conf import settings
 from .models import *
 from django.contrib import messages
 
@@ -298,16 +300,14 @@ def post_detail(request, slug):
 def contact(request):
     posts = Post.objects.all()
     if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        phone = request.POST['phone']
-        subject = request.POST['subject']
+        contact_form = forms.ContactForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
+            messages.success(request, "Your form is submitted")
+            return redirect('contact')
+    else:
+        contact_form = forms.ContactForm()
         
-        message = request.POST['message']
-        contact = Contact(name=name, email=email, phone=phone, subject=subject, message=message)
-        contact.save()
-        messages.success(request, "Your form is submitted")
-        return redirect('contact')
     category = request.GET.get('category')
     
     if category == None:
@@ -315,12 +315,13 @@ def contact(request):
     else:
         ministries = Ministry.objects.filter(category__name=category)
     categories = MinistryCategory.objects.all()
-    # if request.method == 'POST':
-    #     email_address = request.POST['email_address']
-    #     newsletter = Newsletter(email_address=email_address)
-    #     newsletter.save()
-    #     return redirect('home')
+    if request.method == 'POST':
+        email_address = request.POST['email_address']
+        newsletter = Newsletter(email_address=email_address)
+        newsletter.save()
+        return redirect('home')
     context = {
+        'contact_form': contact_form,
         'ministries': ministries,
         'categories': categories,
         'posts': posts,
@@ -352,7 +353,7 @@ def paster(request):
     }
     return render(request, 'church/paster.html', context)
 
-def donate(request):
+def donate(request: HttpRequest) -> HttpResponse:
     posts = Post.objects.all()
     category = request.GET.get('category')
     
@@ -366,10 +367,27 @@ def donate(request):
         newsletter = Newsletter(email_address=email_address)
         newsletter.save()
         return redirect('home')
+    if request.method == 'POST':
+        payment_form = forms.PaymentForm(request.POST)
+        if payment_form.is_valid():
+            payment = payment_form.save()
+            return render(request, 'church/make_payment.html', {'payment':payment, 'paystack_public_key':settings.PAYSTACK_PUBLIC_KEY})
+    else:
+        payment_form = forms.PaymentForm()
     context = {
+        'payment_form': payment_form,
         'ministries': ministries,
         'categories': categories,
         'posts':posts,
         'title': 'Donate'
     }
     return render(request, 'church/donate.html', context)
+
+def verify_payment(request: HttpRequest, ref: str) -> HttpResponse:
+    payment = get_object_or_404(Payment, ref=ref)
+    verified = payment.verify_payment()
+    if verified:
+        messages.success(request, 'Verification Successful')
+    else:
+        messages.error(request, 'Verification Failed')
+    return redirect('donate')

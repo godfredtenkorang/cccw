@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'church',
     'embed_video',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -121,6 +122,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+PAYSTACK_SECRET_KEY = config("PAYSTACK_SECRET_KEY")
+PAYSTACK_PUBLIC_KEY = config("PAYSTACK_PUBLIC_KEY")
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
