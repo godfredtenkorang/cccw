@@ -363,17 +363,18 @@ def donate(request: HttpRequest) -> HttpResponse:
         ministries = Ministry.objects.filter(category__name=category)
     categories = MinistryCategory.objects.all()
     if request.method == 'POST':
-        email_address = request.POST['email_address']
-        newsletter = Newsletter(email_address=email_address)
-        newsletter.save()
-        return redirect('home')
-    if request.method == 'POST':
         payment_form = forms.PaymentForm(request.POST)
         if payment_form.is_valid():
             payment = payment_form.save()
             return render(request, 'church/make_payment.html', {'payment':payment, 'paystack_public_key':settings.PAYSTACK_PUBLIC_KEY})
     else:
         payment_form = forms.PaymentForm()
+    if request.method == 'POST':
+        email_address = request.POST['email_address']
+        email_address = False
+        newsletter = Newsletter(email_address=email_address)
+        newsletter.save()
+        return redirect('home')
     context = {
         'payment_form': payment_form,
         'ministries': ministries,
