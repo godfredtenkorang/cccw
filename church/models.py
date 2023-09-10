@@ -159,7 +159,7 @@ class Payment(models.Model):
     amount = models.PositiveBigIntegerField()
     ref = models.CharField(max_length=200)
     name = models.CharField(max_length=100)
-    phone = models.CharField(max_length=14)
+    phone = models.CharField(max_length=14, null=True)
     email = models.EmailField()
     verified = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)
