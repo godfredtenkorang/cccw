@@ -177,6 +177,30 @@ def youtube(request):
     }
     return render(request, 'church/youtube.html', context)
 
+def live_channel(request):
+    live_tv = LiveTv.objects.all()
+    posts = Post.objects.all()
+    category = request.GET.get('category')
+    
+    if category == None:
+        ministries = Ministry.objects.order_by('image')
+    else:
+        ministries = Ministry.objects.filter(category__name=category)
+    categories = MinistryCategory.objects.all()
+    if request.method == 'POST':
+        email_address = request.POST['email_address']
+        newsletter = Newsletter(email_address=email_address)
+        newsletter.save()
+        return redirect('home')
+    context = {
+        'ministries': ministries,
+        'categories': categories,
+        'live_tv': live_tv,
+        'posts': posts,
+        'title': 'LiveTV'
+    }
+    return render(request, 'church/live_channel.html', context)
+
 def ministry(request):
     category = request.GET.get('category')
     minstry = Ministry.objects.filter(category__name=category).first()

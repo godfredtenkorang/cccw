@@ -330,15 +330,24 @@
   }
 
   /*--------------Contact start--------------*/
+
+  .carousel-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #000;
+  opacity: 0.7;
+}
+
 </style>
 
 <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <!-- <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="{% static 'church/images/Church-logo.png' %}" width="50" height="50" class="d-inline-block align-top" alt="">
-                <span style="font-size: 35px;">CCCW</span>
-            </a> -->
       <a href="{% url 'home' %}"><img src="{% static 'church/images/Church-logo.png' %}" height="50px" alt=""></a>
       <h1 class="d-none d-md-block pl-2"><a
           style="font-size: 30px; font-weight: 800; color: #090580; font-family: Roboto;"
@@ -379,6 +388,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'live_channel' %}">Live TV</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'contact' %}">Contact</a>

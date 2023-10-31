@@ -115,6 +115,14 @@ class YouTube(models.Model):
     def __str__(self):
         return self.title
     
+class LiveTv(models.Model):
+    title = models.CharField(max_length=100)
+    date_added = models.DateTimeField(auto_now_add=True)
+    url = EmbedVideoField()
+    
+    def __str__(self):
+        return self.title
+    
 class MinistryCategory(models.Model):
     name = models.CharField(max_length=100)
     pub_date = models.DateTimeField('date published')

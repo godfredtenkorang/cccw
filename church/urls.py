@@ -10,6 +10,7 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
     path('our_pastors/', views.paster, name='pastor'),
     path('youtube/', views.youtube, name='youtube'),
+    path('live/', views.live_channel, name='live_channel'),
     path('ministry/', views.ministry, name='ministry'),
     path('blog/', views.blog, name='blog'),
     path('blog_detail/<slug>/', views.blog_detail, name='blog-detail'),
